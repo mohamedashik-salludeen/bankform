@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "role": "adminUser",
+      "username": "admin123",
+      "password": "aduser123"
+    },
+    {
+      "role": "Existing user",
+      "username": "exist123",
+      "password": "custom123",
+      "customerNumber": "9677288",
+      "referenceNum": "cus20230705",
+      "customerAddress": "no:10 nehru nagar 3rd cross street pallavaram",
+      "phoneNumber": "9566041618"
+    },
+    {
+      "role": "Existing user",
+      "username": "exist500",
+      "password": "custom123",
+      "customerNumber": "9677266",
+      "referenceNum": "cus20230706",
+      "customerAddress": "no:15  maari nagar 3rd cross street pallavaram",
+      "phoneNumber": "9566041618"
+    }
+  ],
+  "transactions": [
+    {
+      "exist500": [
+        {
+          "userType": "Existing user",
+          "referenceNum": "cus20230706",
+          "customerName": "exist500",
+          "customerNumber": "9677266",
+          "customerAddress": "no:15  maari nagar 3rd cross street pallavaram",
+          "phoneNumber": "9566041618",
+          "transferAmount": "5435",
+          "transferCurrency": "EUR",
+          "beneficiaryBank": "asdasd",
+          "beneficiaryAccnum": "33",
+          "paymentDetails": "asdasd",
+          "cardDetails": "asdsad",
+          "region": "Port Mathurin"
+        },
+        {
+          "userType": "Existing user",
+          "referenceNum": "cus20230706",
+          "customerName": "exist500",
+          "customerNumber": "9677266",
+          "customerAddress": "no:15  maari nagar 3rd cross street pallavaram",
+          "phoneNumber": "9566041618",
+          "transferAmount": "5435",
+          "transferCurrency": "CHF",
+          "beneficiaryBank": "asdasd",
+          "beneficiaryAccnum": "213",
+          "paymentDetails": "asdasd",
+          "cardDetails": "asdsad",
+          "region": "Port Mathurin"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "exist123": [
+        {
+          "userType": "Existing user",
+          "referenceNum": "cus20230705",
+          "customerName": "exist123",
+          "customerNumber": "9677288",
+          "customerAddress": "no:10 nehru nagar 3rd cross street pallavaram",
+          "phoneNumber": "9566041618",
+          "transferAmount": "5435",
+          "transferCurrency": "CHF",
+          "beneficiaryBank": "asdasd",
+          "beneficiaryAccnum": "876896",
+          "paymentDetails": "asdasd",
+          "cardDetails": "asdsad",
+          "region": "Port Mathurin"
+        }
+      ],
+      "id": 4
+    }
+  ]
+}
