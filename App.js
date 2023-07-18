@@ -8,36 +8,36 @@ import Mainpage from './components/bankTransation/Mainpage';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import SubmittedTransaction from './components/bankTransation/SubmittedTransaction';
-import bankLogo from "./components/bankTransation/bankLogo.png"
+import "./App.css"
+import logoBank from "./components/bankTransation/images/logoBank.png"
 const App = () => {
-  
 
-  
+
+
 
   return (
     <div className="App">
-      <AppBar position="static"  style={{padding:"10px"}}>
+      <AppBar position="fixed" style={{ padding: "10px", }}>
         <Toolbar>
-        <img
-            src={bankLogo}
+          <img
+            src={logoBank}
             alt="Logo"
-            style={{maxWidth:"100%",width:"100px",height:"100px"}}
+            style={{ maxWidth: "100%", width: "210px" }}
           />
-         
+
         </Toolbar>
       </AppBar>
-    <ToastContainer theme='light' position='top-right'></ToastContainer>
-    <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<LoginForm/>}></Route>
-      <Route path='/mainpage' element={<Mainpage/>}></Route>
-      <Route path='/newtransaction' element={<NewTransactionForm/>}></Route>
-      <Route path='/TransactionList' element={<TransactionList/>}></Route>
-      <Route path='/SubmittedTransaction' element={<SubmittedTransaction/>}></Route>
-      
-    </Routes>
-    
-    </BrowserRouter>
+      <ToastContainer theme='light' position='top-right'></ToastContainer>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<LoginForm />}></Route>
+          <Route path='/mainpage' element={<Mainpage />}></Route>
+          <Route path='/newtransaction' element={<NewTransactionForm />}></Route>
+          <Route path='/TransactionList' element={<TransactionList />}></Route>
+          <Route path='/SubmittedTransaction' element={<SubmittedTransaction />}></Route>
+        </Routes>
+
+      </BrowserRouter>
     </div>
   );
 };
