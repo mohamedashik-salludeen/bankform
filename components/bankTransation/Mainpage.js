@@ -48,13 +48,14 @@ useEffect(()=>{
 },[])
 
     return (
-        <Box sx={{p:3}}>
+        <Box sx={{p:3,boxSizing:"border-box"}} className="mainBox">
             <Typography component="h1" variant="h5">Welcome <span style={{color:"green"}}>{loginUser.name}</span></Typography>
+            <Button type="submit" variant="contained" sx={{ mt:0,float:"right" }} onClick={(e)=>logOutchk(e)} >Logout</Button>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} style={{marginTop:"10px"}}>
-                <Grid item xs={6} onClick={(e)=>newtransaction(e)} > <Item>New Transaction</Item></Grid>
-                <Grid item xs={6}  onClick={(e)=>submitPage(e)}><Item>Submitted Transaction</Item></Grid>
+                <Grid item xs={6} onClick={(e)=>newtransaction(e)}  > <Item className="mainbox1">New Transaction</Item></Grid>
+                <Grid item xs={6}  onClick={(e)=>submitPage(e)} ><Item className="mainbox1">View Submitted Transactions</Item></Grid>
             </Grid>
-            <Button type="submit" variant="contained" sx={{ mt: 3 }} onClick={(e)=>logOutchk(e)} >Logout</Button>
+            
         </Box>
 
     );
