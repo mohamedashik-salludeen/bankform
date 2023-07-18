@@ -9,7 +9,8 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import SubmittedTransaction from './components/bankTransation/SubmittedTransaction';
 import "./App.css"
-import logoBank from "./components/bankTransation/images/logoBank.png"
+import logoBank from "./components/bankTransation/assets/logoBank.png"
+
 const App = () => {
 
 
