@@ -9,8 +9,8 @@ import Container from "@mui/material/Container";
 import { toast } from "react-toastify";
 import { loginElements } from "./formElements/Loginelement";
 import { useNavigate } from 'react-router-dom';
-import loginBackground from "./images/loginBackground.jpg"
-import Logo from "./images/logo1.png"
+import loginBackground from "./assets/loginBackground.jpg"
+import Logo from "./assets/logo1.png"
 
 
 function LoginForm() {
