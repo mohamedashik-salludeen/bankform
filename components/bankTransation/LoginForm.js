@@ -2,12 +2,17 @@
 import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import Link from '@mui/material/Link';
 import Container from "@mui/material/Container";
 import { toast } from "react-toastify";
 import { loginElements } from "./formElements/Loginelement";
 import { useNavigate } from 'react-router-dom';
+import loginBackground from "./images/loginBackground.jpg"
+import Logo from "./images/logo1.png"
+
+
 function LoginForm() {
 
   const INIT_STATE = {
@@ -23,7 +28,7 @@ function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      fetch("http://localhost:3001/users/").then((res) => {
+      fetch("http://localhost:3030/users/").then((res) => {
         return res.json();
       }).then((responseData) => {
 
@@ -37,6 +42,7 @@ function LoginForm() {
           toast.error('Please Enter valid credentials');
         }
       }).catch((err) => {
+        setUser(INIT_STATE);
         toast.error('Login Failed due to :' + err.message);
       });
     }
@@ -57,49 +63,46 @@ function LoginForm() {
   }, []);
 
   return (
-    <Container component="main" maxWidth="sm">
-      <Box
-        sx={{ boxShadow: 4, borderRadius: 2, px: 2, py: 4, marginTop: 8, display: "flex", flexDirection: "column", alignItems: "center", }}>
-        <Typography component="h1" variant="h5">
-          Login
-        </Typography>
-        <Box component="form" sx={{ mt: 1, width: "520px" }} noValidate onSubmit={handleSubmit}>
+    <Container component="main" maxWidth="xl" sx={{ paddingLeft: "0px !important", paddingRight: "0px !important", position: "absolute", top: 0, left: 0 }}>
+      <Box sx={{ mt: 1 }}  >
+        <form noValidate onSubmit={handleSubmit} autoComplete="off">
+          <Grid container spacing={2} style={{
+            backgroundImage: `url(${loginBackground})`, backgroundSize: "cover", backgroundRepeat: "no-repeat",
+            height: "100vh"
+          }}>
+            <Grid item xs={9} md={5} className="loginBackground">
+              <div className="logincntBlk">
+                <img src={Logo} alt="logolog"></img>
+                <div><b>SIGN IN TO GLOBAL BANK</b></div>
+                <div>Please enter your credentials to proceed</div>
+              </div>
 
-          {
-            loginElements.map((input) => {
-              return (
-                <div key={input.name}>
-                  <TextField {...input} onChange={(e) => handleChange(e)} value={users[input.name]} />
-                </div>
-              )
-            })
-          }
-
-          <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} >Sign In </Button>
-        </Box>
+              <Grid item xs={12} className="">
+                {
+                  loginElements.map((input) => {
+                    return (
+                      <div key={input.name} >
+                        <TextField {...input} onChange={(e) => handleChange(e)} value={users[input.name]} focused />
+                      </div>
+                    )
+                  })
+                }
+                <Grid container spacing={2} sx={{display:"flex",justifyContent:"center",pt:1}}>
+                  <Grid item xs={6}  sx={{pt:0}}>
+                    <Button type="submit" fullWidth variant="contained" className="logbtnClr" >Sign In </Button>
+                  </Grid>
+                  
+                  <Grid item xs={12} sx={{pt:0,textAlign:"center"}}>
+                    <Link href="#" underline="always">
+                      {"Forgot Password"}
+                    </Link>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </form>
       </Box>
-
-      <Typography style={{marginTop:"10px"}}>
-        {JSON.stringify({
-          "role": "adminUser",
-          "username": "admin123",
-          "password": "aduser123"
-        })}
-        {JSON.stringify({
-          "role": "Existing user",
-          "username": "exist123",
-          "password": "custom123",
-         
-        },
-        )}
-
-        {JSON.stringify({
-          "role": "Existing user",
-          "username": "exist500",
-          "password": "custom123",
-         
-        })}
-      </Typography>
     </Container>
 
   );
