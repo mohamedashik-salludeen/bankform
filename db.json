@@ -1,13 +1,19 @@
 {
   "users": [
     {
-      "role": "adminUser",
+      "role": "Existing user",
+      "userType": "Admin",
       "username": "admin123",
-      "password": "aduser123"
+      "password": "aduser123",
+      "customerNumber": "9677288",
+      "referenceNum": "cus96772882",
+      "customerAddress": "no:10 Admin street canada",
+      "phoneNumber": "9876543210"
     },
     {
       "role": "Existing user",
-      "username": "exist123",
+      "userType": "commonUser",
+      "username": "user123",
       "password": "custom123",
       "customerNumber": "9677288",
       "referenceNum": "cus20230705",
@@ -16,7 +22,8 @@
     },
     {
       "role": "Existing user",
-      "username": "exist500",
+      "userType": "commonUser",
+      "username": "user500",
       "password": "custom123",
       "customerNumber": "9677266",
       "referenceNum": "cus20230706",
@@ -26,56 +33,96 @@
   ],
   "transactions": [
     {
-      "exist500": [
+      "admin123": [
         {
           "userType": "Existing user",
-          "referenceNum": "cus20230706",
-          "customerName": "exist500",
-          "customerNumber": "9677266",
-          "customerAddress": "no:15  maari nagar 3rd cross street pallavaram",
-          "phoneNumber": "9566041618",
-          "transferAmount": "5435",
+          "referenceNum": "cus96772882",
+          "customerName": "admin123",
+          "customerNumber": "9677288",
+          "customerAddress": "no:10 Admin street canada",
+          "phoneNumber": "9876543210",
+          "transferAmount": "5000",
           "transferCurrency": "EUR",
-          "beneficiaryBank": "asdasd",
-          "beneficiaryAccnum": "33",
-          "paymentDetails": "asdasd",
-          "cardDetails": "asdsad",
-          "region": "Port Mathurin"
-        },
+          "beneficiaryBank": "HSBC",
+          "beneficiaryAccnum": "9630258741",
+          "paymentDetails": "adminpay",
+          "cardDetails": " ",
+          "region": "Vacoas"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "user123": [
+        {
+          "userType": "Existing user",
+          "referenceNum": "cus20230705",
+          "customerName": "user123",
+          "customerNumber": "9677288",
+          "customerAddress": "no:10 nehru nagar 3rd cross street pallavaram",
+          "phoneNumber": "9566041618",
+          "transferAmount": "2500",
+          "transferCurrency": "CHF",
+          "beneficiaryBank": "HDFC",
+          "beneficiaryAccnum": "963385214879",
+          "paymentDetails": "commonpay",
+          "cardDetails": "025815963574",
+          "region": "Curepipe"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "user500": [
         {
           "userType": "Existing user",
           "referenceNum": "cus20230706",
-          "customerName": "exist500",
+          "customerName": "user500",
           "customerNumber": "9677266",
           "customerAddress": "no:15  maari nagar 3rd cross street pallavaram",
           "phoneNumber": "9566041618",
-          "transferAmount": "5435",
-          "transferCurrency": "CHF",
-          "beneficiaryBank": "asdasd",
-          "beneficiaryAccnum": "213",
-          "paymentDetails": "asdasd",
-          "cardDetails": "asdsad",
-          "region": "Port Mathurin"
+          "transferAmount": "9000",
+          "transferCurrency": "USD",
+          "beneficiaryBank": "INDIAN BANK",
+          "beneficiaryAccnum": "9630258711",
+          "paymentDetails": "commonpayaa",
+          "cardDetails": "9630258147990",
+          "region": "Vacoas"
         }
       ],
       "id": 3
     },
     {
-      "exist123": [
+      "user123": [
         {
           "userType": "Existing user",
           "referenceNum": "cus20230705",
-          "customerName": "exist123",
+          "customerName": "user123",
           "customerNumber": "9677288",
           "customerAddress": "no:10 nehru nagar 3rd cross street pallavaram",
           "phoneNumber": "9566041618",
-          "transferAmount": "5435",
-          "transferCurrency": "CHF",
-          "beneficiaryBank": "asdasd",
-          "beneficiaryAccnum": "876896",
-          "paymentDetails": "asdasd",
-          "cardDetails": "asdsad",
-          "region": "Port Mathurin"
+          "transferAmount": "12000",
+          "transferCurrency": "AED",
+          "beneficiaryBank": "SBI",
+          "beneficiaryAccnum": "9631558741",
+          "paymentDetails": "commonpay",
+          "cardDetails": "963025883789",
+          "region": "Vacoas"
+        },
+        {
+          "userType": "Existing user",
+          "referenceNum": "cus20230705",
+          "customerName": "user123",
+          "customerNumber": "9677288",
+          "customerAddress": "no:10 nehru nagar 3rd cross street pallavaram",
+          "phoneNumber": "9566041618",
+          "transferAmount": "10000",
+          "transferCurrency": "USD",
+          "beneficiaryBank": "INDIAN",
+          "beneficiaryAccnum": "9530258741",
+          "paymentDetails": "commonpay",
+          "cardDetails": "123025814789",
+          "region": "Curepipe"
         }
       ],
       "id": 4
