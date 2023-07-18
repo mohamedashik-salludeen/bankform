@@ -1,6 +1,7 @@
 /* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 import TransactionList from './transactionList';
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -52,7 +53,7 @@ function NewTransactionForm() {
   const [totalTransaction, setTotalTransaction] = useState([])
   const [error, setError] = useState(INIT_ERR_STATE)
   const [issubmitted, setIssubmitted] = useState(INIT_SUBMIT)
-
+  const usenavigate = useNavigate();
   const handleChange = (e) => {
     setTransaction({ ...transaction, [e.target.name]: e.target.value })
   }
@@ -63,17 +64,24 @@ function NewTransactionForm() {
       userType: e.target.value
     }));
   }
+
+  const NavMainpage=(e)=>{
+    e.preventDefault();
+    usenavigate('/mainpage')
+}
+
   const saveTransaction = (e) => {
     e.preventDefault()
     if (totalTransaction.length) {
   
      let sendObject = { [loginUser.name]: totalTransaction }
+
       setIssubmitted(prevState => ({
         ...prevState,
         addtransaction: false,
         savetransaction: true
       }));
-      axios.post("http://localhost:3001/transactions", sendObject)
+      axios.post("http://localhost:3030/transactions",sendObject)
         .then((res) => res.data)
         .catch((err) => err.message)
     }
@@ -194,7 +202,7 @@ function NewTransactionForm() {
     }
 
 
-    if (!transaction.beneficiaryBank.match(/^[a-zA-Z]*$/)) {
+    if (!transaction.beneficiaryBank.match(/^[a-z][a-z\s]*$/)) {
       setError(prevState => ({
         ...prevState,
         beneficiaryBank: "Beneficiary Bank must be a Letter"
@@ -233,7 +241,7 @@ function NewTransactionForm() {
     let sessionUser = JSON.parse(sessionStorage.getItem('userdetails'));
     setLoginUser(sessionUser)
    
-    axios.get("http://localhost:3001/users")
+    axios.get("http://localhost:3030/users")
       .then((res) => {
 
 
@@ -259,10 +267,10 @@ function NewTransactionForm() {
 
 
   return (
-    <Container component="main" maxWidth="md" sx={{ mb: 3 }}>
+    <Container component="main" maxWidth="md" style={{position:"relative",top:"92px"}}>
 
       <form>
-        <Grid container >
+        <Grid container>
 
           <Grid container sx={{ boxShadow: 3, my: 2, p: 2 }} >
             <Grid item xs={12} color="green" >{totalTransaction.length && issubmitted.addtransaction ? "Form: " + totalTransaction.length + " Added if you want to submit or Add transaction" : null} </Grid>
@@ -378,6 +386,7 @@ function NewTransactionForm() {
                     size="small"
                     value={transaction.beneficiaryBank}
                     onChange={(e) => handleChange(e)}
+                    inputProps={{ style: { textTransform: "uppercase" } }}
                   />
                   <TextField
                     name="beneficiaryAccnum"
@@ -437,13 +446,15 @@ function NewTransactionForm() {
         </Grid>
       </form>
 
-      <Grid container >
-        <Grid item xs={3} >
+      <Grid container  >
+        <Grid item xs={6} md={4} >
           <Button type="submit" variant="contained" sx={{ mt: 1 }} onClick={(e) => saveTransaction(e)}>Submit </Button>
         </Grid>
-        <Grid item xs={3}  >
+        <Grid item xs={6}  md={4} className="grifBtn2">
           <Button type="submit" variant="contained" sx={{ mt: 1 }} onClick={(e) => addNewform(e)}>Add Transaction  </Button>
-
+        </Grid>
+        <Grid item xs={12} md={4} className="grifBtn3">
+        <Button type="submit" variant="contained" sx={{ mt: 1,float:"right" }}  onClick={(e) => NavMainpage(e)}>Go To MainPage </Button>
         </Grid>
       </Grid>
 
