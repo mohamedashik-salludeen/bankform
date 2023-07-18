@@ -9,13 +9,8 @@ import Paper from '@mui/material/Paper';
 
 
 const TransactionList = ({ submittedData }) => {
-
- 
- 
-  
-
   return (
-    <TableContainer component={Paper} style={{ marginTop: "20px", }} >
+    <TableContainer component={Paper} style={{ marginTop: "20px",marginBottom:"20px" }} >
       <Table>
         <TableHead style={{ backgroundColor: '#2979ff', color: 'white' }}>
           <TableRow>
